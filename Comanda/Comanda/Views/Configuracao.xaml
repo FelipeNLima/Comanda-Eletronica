@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Comanda.Views.Configuracao">
+  <ContentView.Content>
+        <StackLayout>
+            <Label Text="Insire o IP da Rede" TextColor="{StaticResource textColorLabel}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+            <Entry x:Name="nomeip" Keyboard="Telephone" Placeholder="IP da Rede" HorizontalTextAlignment="Center"/>
+            <Button x:Name="BTsalvar" Text="Salvar" BackgroundColor="{StaticResource ButtonColor}" TextColor="White" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

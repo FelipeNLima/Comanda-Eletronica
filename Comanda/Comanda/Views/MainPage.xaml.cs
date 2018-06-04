@@ -59,7 +59,7 @@ namespace Comanda.Views
             };
 
 
-            bool certo = login.logar();
+            bool certo = login.Logar();
             try
             {
                 if (certo)

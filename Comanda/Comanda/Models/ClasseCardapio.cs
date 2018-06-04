@@ -16,7 +16,7 @@ namespace Comanda.Models
 
         public void CarregarPorId(int ID)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -42,7 +42,7 @@ namespace Comanda.Models
             }
             finally
             {
-                obj.desconectar();
+                obj.Desconectar();
             }
 
         }
@@ -51,7 +51,7 @@ namespace Comanda.Models
         {
             List<ClasseCardapio> listadecardapio = new List<ClasseCardapio>();
 
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -81,7 +81,7 @@ namespace Comanda.Models
             }
             finally
             {
-                obj.desconectar();
+                obj.Desconectar();
             }
             return listadecardapio;
         }

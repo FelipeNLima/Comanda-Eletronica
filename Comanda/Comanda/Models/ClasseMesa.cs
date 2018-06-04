@@ -15,7 +15,7 @@ namespace Comanda.Models
 
         public static List<ClasseMesa> CarregarMesa()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             List<ClasseMesa> lista = new List<ClasseMesa>();
 
@@ -41,13 +41,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return lista;
         }
 
         public bool AtualizarMesa()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -71,7 +71,7 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
 
 
@@ -79,7 +79,7 @@ namespace Comanda.Models
 
         public void CarregarMesaPorID(int id)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -104,7 +104,7 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public void MudarParaOcupado()

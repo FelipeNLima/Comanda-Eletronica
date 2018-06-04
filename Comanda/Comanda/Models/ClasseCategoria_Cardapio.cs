@@ -14,7 +14,7 @@ namespace Comanda.Models
 
         public void CarregarCardapioID(int ID)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -36,14 +36,14 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public static List<ClasseCategoria_Cardapio> CarregarCategoriaCardapio()
         {
 
 
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             List<ClasseCategoria_Cardapio> lista = new List<ClasseCategoria_Cardapio>();
 
             try
@@ -69,7 +69,7 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return lista;
         }
     }

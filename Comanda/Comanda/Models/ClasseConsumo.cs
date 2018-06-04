@@ -18,7 +18,7 @@ namespace Comanda.Models
 
         public bool CadastrarConsumo()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -46,13 +46,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public bool AtualizarConsumo()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -79,13 +79,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public void CarregarPorID(int id)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -114,13 +114,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public static List<ClasseConsumo> CarregerConsumoPorVenda(int idVenda)
         {
             List<ClasseConsumo> listaconsumo = new List<ClasseConsumo>();
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -157,14 +157,14 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return listaconsumo;
         }
 
         public static List<ClasseConsumo> CarregarConsumoPorMesa(int numeromesa)
         {
             List<ClasseConsumo> listaconsumo = new List<ClasseConsumo>();
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -200,7 +200,7 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return listaconsumo;
         }
     }

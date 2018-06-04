@@ -13,7 +13,7 @@ namespace Comanda.Models
 
         public void CarregarCargo()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -32,12 +32,12 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public void CarregarCargoPorID(int ID)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -57,14 +57,14 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public static List<ClasseCargo> ListaCarregarCargo()
         {
 
             {
-                conexao obj = new conexao();
+                Conexao.Conexao obj = new Conexao.Conexao();
                 List<ClasseCargo> lista = new List<ClasseCargo>();
 
                 try
@@ -91,7 +91,7 @@ namespace Comanda.Models
 
                     throw;
                 }
-                finally { obj.desconectar(); }
+                finally { obj.Desconectar(); }
                 return lista;
             }
         }

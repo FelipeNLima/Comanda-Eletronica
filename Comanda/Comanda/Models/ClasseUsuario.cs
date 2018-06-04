@@ -17,7 +17,7 @@ namespace Comanda.Models
 
         public bool CadastrarUsuario()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -31,7 +31,7 @@ namespace Comanda.Models
 
                 obj.cmd.Parameters.AddWithValue("@NOME", nome);
                 obj.cmd.Parameters.AddWithValue("@LOGIN", login);
-                obj.cmd.Parameters.AddWithValue("@SENHA", criptografia.GerarHashMd5(senha));
+                obj.cmd.Parameters.AddWithValue("@SENHA", Criptografia.GerarHashMd5(senha));
                 obj.cmd.Parameters.AddWithValue("@APAGADO", apagado);
                 obj.cmd.Parameters.AddWithValue("@IDCARGO", cargo.id_cargo);
 
@@ -43,13 +43,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public bool AtualizarUsuario()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -63,7 +63,7 @@ namespace Comanda.Models
 
                 obj.cmd.Parameters.AddWithValue("@NOME", nome);
                 obj.cmd.Parameters.AddWithValue("@LOGIN", login);
-                obj.cmd.Parameters.AddWithValue("@SENHA", criptografia.GerarHashMd5(senha));
+                obj.cmd.Parameters.AddWithValue("@SENHA", Criptografia.GerarHashMd5(senha));
                 obj.cmd.Parameters.AddWithValue("@APAGADO", apagado);
                 obj.cmd.Parameters.AddWithValue("@IDCARGO", cargo.id_cargo);
                 obj.cmd.Parameters.AddWithValue("@ID_USUARIO", id_usuario);
@@ -78,14 +78,14 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
 
         }
 
         public bool DeletarUsuario(int id)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -106,13 +106,13 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public void CarregarUsuarioPorId(int ID)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -138,13 +138,13 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public bool TemUsuario(string Login, int id_usuario)
         {
             bool existe = false;
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -165,14 +165,14 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return existe;
 
         }
 
         public void CarregarUsuarioGarcom()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -193,14 +193,14 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public static List<ClasseUsuario> CarregarGarcom()
         {
 
             {
-                conexao obj = new conexao();
+                Conexao.Conexao obj = new Conexao.Conexao();
                 List<ClasseUsuario> lista = new List<ClasseUsuario>();
 
                 try
@@ -213,9 +213,10 @@ namespace Comanda.Models
 
                     while (Leitor.Read())
                     {
-                        ClasseUsuario usuario = new ClasseUsuario();
-
-                        usuario.nome = Leitor["nome"].ToString();
+                        ClasseUsuario usuario = new ClasseUsuario
+                        {
+                            nome = Leitor["nome"].ToString()
+                        };
 
                         lista.Add(usuario);
                     }
@@ -226,14 +227,14 @@ namespace Comanda.Models
 
                     throw;
                 }
-                finally { obj.desconectar(); }
+                finally { obj.Desconectar(); }
                 return lista;
             }
         }
 
         public void CarregarUsuarioGarcomPorNome(string nome)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -254,12 +255,12 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public void CarregarUsuarioPorLogin(string login)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
             try
             {
                 obj.Conectar();
@@ -284,12 +285,12 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
-        public bool logar()
+        public bool Logar()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -302,7 +303,7 @@ namespace Comanda.Models
                 obj.cmd = new SqlCommand(sql, obj.objCon);
 
                 obj.cmd.Parameters.AddWithValue("@LOGIN", login);
-                obj.cmd.Parameters.AddWithValue("@SENHA", criptografia.GerarHashMd5(senha));
+                obj.cmd.Parameters.AddWithValue("@SENHA", Criptografia.GerarHashMd5(senha));
 
 
 
@@ -315,7 +316,7 @@ namespace Comanda.Models
 
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
     }

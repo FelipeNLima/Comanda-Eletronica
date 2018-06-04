@@ -9,13 +9,16 @@ namespace Comanda
 	public partial class App : Application
 	{
 		
+        public static Page PaginaPrincipal { get; set; }
+
 		public App ()
 		{
 			InitializeComponent();
 
 
 			MainPage = new MainPage();
-		}
+            PaginaPrincipal = MainPage;
+        }
 
 		protected override void OnStart ()
 		{

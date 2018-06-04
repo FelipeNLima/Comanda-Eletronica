@@ -23,7 +23,7 @@ namespace Comanda.Models
 
         public bool InserirVenda()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -55,13 +55,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public bool AtualizarVenda()
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             bool correto = false;
 
@@ -91,13 +91,13 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
             return correto;
         }
 
         public void CarregarVendaPorID(int id)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -128,12 +128,12 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
 
         public void CarregarVendaPorMesa(int idMesa)
         {
-            conexao obj = new conexao();
+            Conexao.Conexao obj = new Conexao.Conexao();
 
             try
             {
@@ -165,7 +165,7 @@ namespace Comanda.Models
             {
                 throw;
             }
-            finally { obj.desconectar(); }
+            finally { obj.Desconectar(); }
         }
     }
 }

@@ -1,19 +1,22 @@
-﻿using System;
+﻿using Comanda;
+
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace Comanda.Conexao
 {
-    class conexao
+    class Conexao
     {
-        
-        public string stringConexao = @"Server = tcp:192.168.0.104,1433; Database=BD_RESTAURANTE; User Id = felipe; Password=040594; Trusted_Connection=true ";
-       
+
+        public string stringConexao = @"Server=tcp:10.125.230.16,1433; Database=BD_RESTAURANTE; User Id = felipe; Password=040594;";
+
         public SqlConnection objCon = null;
         public SqlCommand cmd;
         public SqlDataReader leitor;
 
-        public conexao()
+        public Conexao()
         {
             objCon = new SqlConnection(stringConexao);
         }
@@ -27,19 +30,22 @@ namespace Comanda.Conexao
             try
             {
                 if (objCon.State != ConnectionState.Closed)
+                {
                     objCon.Close();
+                }
 
-                objCon.Open();
-                return true;
+                    objCon.Open();
+                    return true;
             }
             catch (Exception ex)
             {
+                App.PaginaPrincipal.DisplayAlert("Aviso", "Não foi possível estabelecer uma conexão com o servidor!", "OK");
                 var e = ex.ToString();
                 return false;
             }
         }
 
-        public bool desconectar()
+        public bool Desconectar()
         {
             if (objCon.State != ConnectionState.Closed)
             {

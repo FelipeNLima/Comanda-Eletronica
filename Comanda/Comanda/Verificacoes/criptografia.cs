@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Comanda.Verificacoes
 {
-    class criptografia
+    class Criptografia
     {
         public static string GerarHashMd5(string input)
         {
